@@ -156,6 +156,12 @@ document.querySelector('button#start').addEventListener('click', async () => {
 });
 
 document.querySelector('select#videoSource').addEventListener('onchange', async() => {
+  alert("Ran change");
+  if (window.stream) {
+    window.stream.getTracks().forEach(track => {
+      track.stop();
+    });
+  }
   const videoSource = videoSelect.value;
   const constraints = {
     video: {deviceId: videoSource ? {exact: videoSource} : undefined}
