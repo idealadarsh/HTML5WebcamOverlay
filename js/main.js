@@ -155,17 +155,17 @@ document.querySelector('button#start').addEventListener('click', async () => {
   await init(constraints);
 });
 
-document.querySelector('select#videoSource').addEventListener('onchange', async() => {
-  alert("Ran change");
+async function changeStream(value){
+  console.error("Ran change");
   if (window.stream) {
     window.stream.getTracks().forEach(track => {
       track.stop();
     });
   }
-  const videoSource = videoSelect.value;
+  const videoSource = value;
   const constraints = {
     video: {deviceId: videoSource ? {exact: videoSource} : undefined}
   };
   console.log('Using media constraints:', constraints);
   await init(constraints);
-});
+}

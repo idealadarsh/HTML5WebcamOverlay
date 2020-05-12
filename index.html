@@ -25,7 +25,7 @@
     <h1>HTML5 Video Record</h1>
 
     <div class="select">
-        <label for="videoSource">Video source: </label><select id="videoSource"></select>
+        <label for="videoSource">Video source: </label><select id="videoSource" onchange="changeStream(this.value)"></select>
     </div>
 
     <video id="gum" playsinline autoplay muted></video>
