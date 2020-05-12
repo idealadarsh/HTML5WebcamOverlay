@@ -154,3 +154,12 @@ document.querySelector('button#start').addEventListener('click', async () => {
   console.log('Using media constraints:', constraints);
   await init(constraints);
 });
+
+document.querySelector('select#videoSource').addEventListener('onchange', async() => {
+  const videoSource = videoSelect.value;
+  const constraints = {
+    video: {deviceId: videoSource ? {exact: videoSource} : undefined}
+  };
+  console.log('Using media constraints:', constraints);
+  await init(constraints);
+});
