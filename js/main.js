@@ -9,6 +9,7 @@ let recordedBlobs;
 let sourceBuffer;
 
 let videoSelect = document.querySelector('select#videoSource');
+const startCamBtn = document.querySelector('button#start');
 const errorMsgElement = document.querySelector('span#errorMsg');
 const recordedVideo = document.querySelector('video#recorded');
 const recordButton = document.querySelector('button#record');
@@ -137,7 +138,8 @@ async function init(constraints) {
   }
 }
 
-document.querySelector('button#start').addEventListener('click', async () => {
+
+startCamBtn.addEventListener('click', async () => {
   const devices = await navigator.mediaDevices.enumerateDevices();
   for (const device of devices) {
     const option = document.createElement('option');
@@ -153,6 +155,7 @@ document.querySelector('button#start').addEventListener('click', async () => {
   };
   console.log('Using media constraints:', constraints);
   await init(constraints);
+  startCamBtn.disabled = true;
 });
 
 async function changeStream(value){

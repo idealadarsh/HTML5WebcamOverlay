@@ -275,12 +275,12 @@ p.borderBelow {
   padding: 0 0 20px 0;
 }
 
-video {
+/* video {
   vertical-align: top;
   --width: 25vw;
   width: var(--width);
   height: calc(var(--width) * 0.5625);
-}
+} */
 
 video:last-of-type {
   margin: 0 0 20px 0;
