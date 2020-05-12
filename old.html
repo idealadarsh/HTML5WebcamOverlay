@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta id="theme-color" name="theme-color" content="#fff">
+
+    <title>HTML5 Webcam Overlay</title>
+
+    <link rel="stylesheet" href="main.css">
+
+    <style>
+        h1 {
+            margin: 0 0 24px 0;
+        }
+
+        select {
+            width: 150px;
+        }
+
+        video {
+            margin: 10px 0 0 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="container">
+
+        <h1><a href="#">HTML5 Webcam</a></h1>
+
+            <div class="select">
+                <label for="videoSource">Video source: </label><select id="videoSource"></select>
+            </div>
+
+            <video autoplay muted playsinline></video>
+
+            <button>Start / Stop</button>
+
+            <script async src="main.js"></script>
+
+    </div>
+
+</body>
+
+</html>

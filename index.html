@@ -1,47 +1,57 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta id="theme-color" name="theme-color" content="#fff">
+    <meta name="description" content="HTML5 Video Record">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+    <meta id="theme-color" name="theme-color" content="#ffffff">
 
-    <title>HTML5 Webcam Overlay</title>
+    <base target="_blank">
 
-    <link rel="stylesheet" href="main.css">
+    <title>HTML5 Video Record</title>
 
-    <style>
-        h1 {
-            margin: 0 0 24px 0;
-        }
-
-        select {
-            width: 150px;
-        }
-
-        video {
-            margin: 10px 0 0 0;
-        }
-    </style>
+    <link rel="icon" href="icon.png">
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+    <!-- <link rel="stylesheet" href="../../../css/main.css"> -->
+    <link rel="stylesheet" href="css/main.css">
 
 </head>
 
 <body>
 
-    <div id="container">
+<div id="container">
 
-        <h1><a href="#">HTML5 Webcam</a></h1>
+    <h1>HTML5 Video Record</h1>
 
-            <div class="select">
-                <label for="videoSource">Video source: </label><select id="videoSource"></select>
-            </div>
-
-            <video autoplay muted playsinline></video>
-
-            <script async src="main.js"></script>
-
+    <div class="select">
+        <label for="videoSource">Video source: </label><select id="videoSource"></select>
     </div>
 
-</body>
+    <video id="gum" playsinline autoplay muted></video>
+    <video id="recorded" playsinline loop></video>
 
+    <div>
+        <button id="start">Start camera</button>
+        <button id="record" disabled>Start Recording</button>
+        <button id="play" disabled>Play</button>
+        <button id="download" disabled>Download</button>
+    </div>
+
+    <!-- <div>
+        <h4>Media Stream Constraints options</h4>
+        <p>Echo cancellation: <input type="checkbox" id="echoCancellation"></p>
+    </div> -->
+
+    <div>
+        <span id="errorMsg"></span>
+    </div>
+
+</div>
+
+<!-- include adapter for srcObject shim -->
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+<script src="js/main.js" async></script>
+
+</body>
 </html>
