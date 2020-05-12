@@ -1,7 +1,5 @@
 'use strict';
 
-/* globals MediaRecorder */
-
 const mediaSource = new MediaSource();
 mediaSource.addEventListener('sourceopen', handleSourceOpen, false);
 let mediaRecorder;
@@ -32,7 +30,7 @@ playButton.addEventListener('click', () => {
   recordedVideo.src = null;
   recordedVideo.srcObject = null;
   recordedVideo.src = window.URL.createObjectURL(superBuffer);
-  recordedVideo.controls = true;
+  recordedVideo.controls = false;
   recordedVideo.play();
 });
 
