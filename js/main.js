@@ -53,13 +53,10 @@ downloadButton.addEventListener('click', () => {
 });
 
 function handleSourceOpen(event) {
-  console.log('MediaSource opened');
   sourceBuffer = mediaSource.addSourceBuffer('video/webm; codecs="vp8"');
-  console.log('Source buffer: ', sourceBuffer);
 }
 
 function handleDataAvailable(event) {
-  console.log('handleDataAvailable', event);
   if (event.data && event.data.size > 0) {
     recordedBlobs.push(event.data);
   }
@@ -106,11 +103,9 @@ function startRecording() {
   downloadButton.disabled = true;
   mediaRecorder.onstop = (event) => {
     console.log('Recorder stopped: ', event);
-    console.log('Recorded Blobs: ', recordedBlobs);
   };
   mediaRecorder.ondataavailable = handleDataAvailable;
   mediaRecorder.start(10); // collect 10ms of data
-  console.log('MediaRecorder started', mediaRecorder);
 }
 
 function stopRecording() {
@@ -119,7 +114,6 @@ function stopRecording() {
 
 function handleSuccess(stream) {
   recordButton.disabled = false;
-  console.log('getUserMedia() got stream:', stream);
   window.stream = stream;
 
   const gumVideo = document.querySelector('video#gum');
@@ -156,8 +150,7 @@ startCamBtn.addEventListener('click', async () => {
   startCamBtn.disabled = true;
 });
 
-async function changeStream(value){
-  console.error("Ran change");
+function changeStream(value){
   if (window.stream) {
     window.stream.getTracks().forEach(track => {
       track.stop();
